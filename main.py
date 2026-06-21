@@ -4,6 +4,14 @@ from dataclasses import dataclass
 
 
 @dataclass
+class Card:
+    name: str
+    enchant: str
+    enchant_num: int
+    upgraded: bool
+
+
+@dataclass
 class WinningRun:
     character: str
     deck: list
@@ -41,16 +49,17 @@ def get_cards(path, win):
         # These objects are all card data
         win.character = 'regent'
         for card in items['deck']:
+            new_card = Card("", "", 0, False)
             print(f"Card Name: {card['id']}")
-            win.add_card(card['id'])
+            new_card.name = card['id']
             # iterating on card objects
             for meme in card:
                 if meme == 'enchantment':
-                    print(f"Enchant Amount : {card['enchantment']['amount']}")
-                    print(f"Enchant Type: {card['enchantment']['id']}")
+                    new_card.enchant = card['enchantment']['id']
+                    new_card.enchant_num = card['enchantment']['amount']
                 if meme == 'current_upgrade_level':
-                    print("Upgraded")
-            print("")
+                    new_card.upgraded = True
+            win.add_card(new_card)
 
 
 if __name__ == "__main__":
