@@ -19,18 +19,19 @@ class WinningRun:
     def add_card(self, card):
         self.deck.append(card)
 
-    def print_deck(self):
+    def print_run(self):
+        print(self.character)
         for card in self.deck:
             print(card)
 
 
 def main():
-    win = WinningRun('', [])
     for entry in os.scandir("/home/juicy/.local/share/SlayTheSpire2/steam/76561198243211320/profile1/saves/history/"):
         if entry.is_file():
             if '.backup' not in entry.name:
+                win = WinningRun('', [])
                 get_cards(entry.path, win)
-    win.print_deck()
+                win.print_run()
 
 
 def get_cards(path, win):
@@ -47,10 +48,10 @@ def get_cards(path, win):
     for items in loaded['players']:
         # iterating on cards objects
         # These objects are all card data
-        win.character = 'regent'
+        win.character = items['character']
         for card in items['deck']:
             new_card = Card("", "", 0, False)
-            print(f"Card Name: {card['id']}")
+            # print(f"Card Name: {card['id']}")
             new_card.name = card['id']
             # iterating on card objects
             for meme in card:
