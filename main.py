@@ -51,7 +51,6 @@ def get_cards(path, win):
         win.character = items['character']
         for card in items['deck']:
             new_card = Card("", "", 0, False)
-            # print(f"Card Name: {card['id']}")
             new_card.name = card['id']
             # iterating on card objects
             for meme in card:
