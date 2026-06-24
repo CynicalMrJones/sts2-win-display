@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 from dataclasses import dataclass
 
 
@@ -15,21 +16,26 @@ class Card:
 class WinningRun:
     character: str
     deck: list
+    seed: str
 
     def add_card(self, card):
         self.deck.append(card)
 
     def print_run(self):
         print(self.character)
+        print(self.seed)
         for card in self.deck:
             print(card)
 
 
 def main():
-    for entry in os.scandir("/home/juicy/.local/share/SlayTheSpire2/steam/76561198243211320/profile1/saves/history/"):
+    print(sys.platform)
+    path = "/home/juicy/.local/share/SlayTheSpire2/steam/76561198243211320/pr"\
+        "ofile1/saves/history/"
+    for entry in os.scandir(path):
         if entry.is_file():
             if '.backup' not in entry.name:
-                win = WinningRun('', [])
+                win = WinningRun('', [], '')
                 get_cards(entry.path, win)
                 win.print_run()
 
@@ -38,13 +44,14 @@ def get_cards(path, win):
     # load file in
     file = open(path)
     loaded = json.load(file)
-    print(f"Total Items: {len(loaded)}")
 
+    # Only load wins
     if loaded['win'] is False:
         print("Run not won")
         return 0
 
-    print(loaded['seed'])
+    # The Sneed for the ran
+    win.seed = loaded['seed']
     # iterating on player objects
     for items in loaded['players']:
         # iterating on cards objects
