@@ -44,6 +44,7 @@ def get_cards(path, win):
         print("Run not won")
         return 0
 
+    print(loaded['seed'])
     # iterating on player objects
     for items in loaded['players']:
         # iterating on cards objects
