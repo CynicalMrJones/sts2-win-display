@@ -36,7 +36,8 @@ def main():
         path = os.path.expanduser("~") + "/.local/share/SlayTheSpire2/steam/76561198243211320/pr"\
         "ofile1/saves/history/"
     elif sys.platform == 'win32':
-        print("No Windows Support currently")
+        # This should work. Im not on windows
+        path = os.path.expanduser("~") + "\\AppData\\Local\\SlayTheSpire2\\saves\\history\\"
 
     for entry in os.scandir(path):
         if entry.is_file():
