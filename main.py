@@ -3,6 +3,10 @@ import os
 import sys
 from dataclasses import dataclass
 
+# I don't know how I want to handle seeds
+# Maybe a file that contains all played seeds
+# Load in the file on run time
+
 
 @dataclass
 class Card:
