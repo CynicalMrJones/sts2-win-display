@@ -36,12 +36,16 @@ class WinningRun:
 
 def main():
     # Find os and adjust path accordingly
-    if sys.platform == 'linux':
+    system = sys.platform
+    if system == 'linux':
         path = os.path.expanduser("~") + "/.local/share/SlayTheSpire2/steam/76561198243211320/pr"\
         "ofile1/saves/history/"
-    elif sys.platform == 'win32':
+    elif system == 'win32':
         # This should work. Im not on windows
         path = os.path.expanduser("~") + "\\AppData\\Local\\SlayTheSpire2\\saves\\history\\"
+    else:
+        print('Unable to find sys2 dir')
+        exit(0)
 
     for entry in os.scandir(path):
         if entry.is_file():
