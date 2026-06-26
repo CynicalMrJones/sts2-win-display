@@ -26,6 +26,8 @@ class WinningRun:
         self.deck.append(card)
 
     def print_run(self):
+        if self.seed == '':
+            return
         print(self.character)
         print(self.seed)
         for card in self.deck:
@@ -33,9 +35,14 @@ class WinningRun:
 
 
 def main():
-    print(sys.platform)
-    path = "/home/juicy/.local/share/SlayTheSpire2/steam/76561198243211320/pr"\
+    # Find os and adjust path accordingly
+    if sys.platform == 'linux':
+        path = os.path.expanduser("~") + "/.local/share/SlayTheSpire2/steam/76561198243211320/pr"\
         "ofile1/saves/history/"
+    elif sys.platform == 'win32':
+        # This should work. Im not on windows
+        path = os.path.expanduser("~") + "\\AppData\\Local\\SlayTheSpire2\\saves\\history\\"
+
     for entry in os.scandir(path):
         if entry.is_file():
             if '.backup' not in entry.name:
@@ -51,7 +58,6 @@ def get_cards(path, win):
 
     # Only load wins
     if loaded['win'] is False:
-        print("Run not won")
         return 0
 
     # The Sneed for the ran
