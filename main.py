@@ -32,6 +32,12 @@ class WinningRun:
         print(self.seed)
         for card in self.deck:
             print(card)
+    
+    def to_string(self):
+        string = self.character + '\n' + self.seed + '\n'
+        for card in self.deck:
+            string = string + str(card) + '\n'
+        return string
 
 
 def main():
@@ -44,15 +50,23 @@ def main():
         # This should work. Im not on windows
         path = os.path.expanduser("~") + "\\AppData\\Local\\SlayTheSpire2\\saves\\history\\"
     else:
-        print('Unable to find sys2 dir')
+        print('Unable to find sts2 dir')
         exit(0)
+
+    seed_arr = []
+    with open('win_seeds.txt', 'r') as file:
+        for line in file:
+            seed_arr.append(line.strip())
+
 
     for entry in os.scandir(path):
         if entry.is_file():
             if '.backup' not in entry.name:
                 win = WinningRun('', [], '')
                 get_cards(entry.path, win)
-                win.print_run()
+                # win.print_run()
+                if win.seed not in seed_arr:
+                    win_writer(win)
 
 
 def get_cards(path, win):
@@ -85,8 +99,22 @@ def get_cards(path, win):
             win.add_card(new_card)
 
 
-def seed_check(list):
+def seed_check(seed_list):
     print('TODO: Seed interator')
+
+
+
+def win_writer(winning_run):
+    # Empty runs
+    if winning_run.seed == '':
+        return
+
+    with open("win_seeds.txt", "a") as sf:
+        sf.write(winning_run.seed + '\n')
+
+    with open("Winning.txt", "a") as f:
+        f.write(winning_run.to_string())
+    f.close()
 
 
 if __name__ == "__main__":
