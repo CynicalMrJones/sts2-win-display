@@ -81,7 +81,7 @@ def get_cards(path, win):
     # The Sneed for the ran
     win.seed = loaded['seed']
     # iterating on player objects
-    print(f"Size of players: {len(loaded['players'])}")
+    # print(f"Size of players: {len(loaded['players'])}")
     for items in loaded['players']:
         # iterating on cards objects
         # These objects are all card data
