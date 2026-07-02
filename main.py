@@ -99,10 +99,6 @@ def get_cards(path, win):
             win.add_card(new_card)
 
 
-def seed_check(seed_list):
-    print('TODO: Seed interator')
-
-
 
 def win_writer(winning_run):
     # Empty runs
