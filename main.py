@@ -59,6 +59,7 @@ def get_cards(path, win):
     # The Sneed for the ran
     win.seed = loaded['seed']
     # iterating on player objects
+    print(f"Size of players: {len(loaded['players'])}")
     for items in loaded['players']:
         # iterating on cards objects
         # These objects are all card data
@@ -74,6 +75,10 @@ def get_cards(path, win):
                 if meme == 'current_upgrade_level':
                     new_card.upgraded = True
             win.add_card(new_card)
+
+
+def seed_check(list):
+    print('TODO: Seed interator')
 
 
 if __name__ == "__main__":
