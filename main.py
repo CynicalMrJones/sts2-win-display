@@ -32,7 +32,7 @@ class WinningRun:
         print(self.seed)
         for card in self.deck:
             print(card)
-    
+
     def to_string(self):
         string = self.character + '\n' + self.seed + '\n'
         for card in self.deck:
@@ -57,7 +57,6 @@ def main():
     with open('win_seeds.txt', 'r') as file:
         for line in file:
             seed_arr.append(line.strip())
-
 
     for entry in os.scandir(path):
         if entry.is_file():
@@ -97,7 +96,6 @@ def get_cards(path, win):
                 if meme == 'current_upgrade_level':
                     new_card.upgraded = True
             win.add_card(new_card)
-
 
 
 def win_writer(winning_run):

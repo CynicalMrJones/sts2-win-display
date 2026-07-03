@@ -1,5 +1,6 @@
 # TODOS
-- Seed exclusivity
 - Multiplayer support
-  - Do not save old seeds again
-- Frontend
+- Frontend: Flask?
+    - See winning decks
+    - Rename winning decks
+    - Add description
