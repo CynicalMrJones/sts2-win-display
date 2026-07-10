@@ -2,6 +2,7 @@ import json
 import os
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 
 # I don't know how I want to handle seeds
 # Maybe a file that contains all played seeds
@@ -37,6 +38,7 @@ class WinningRun:
         string = self.character + '\n' + self.seed + '\n'
         for card in self.deck:
             string = string + str(card) + '\n'
+        string += '\n'
         return string
 
 
@@ -54,9 +56,11 @@ def main():
         exit(0)
 
     seed_arr = []
-    with open('win_seeds.txt', 'r') as file:
-        for line in file:
-            seed_arr.append(line.strip())
+    win_seed = Path("win_seeds.txt")
+    if win_seed.exists():
+        with open('win_seeds.txt', 'r') as file:
+            for line in file:
+                seed_arr.append(line.strip())
 
     for entry in os.scandir(path):
         if entry.is_file():
@@ -80,7 +84,10 @@ def get_cards(path, win):
     # The Sneed for the ran
     win.seed = loaded['seed']
     # iterating on player objects
-    # print(f"Size of players: {len(loaded['players'])}")
+    # Check player amount
+    if len(loaded['players']) != 1:
+        return 0
+
     for items in loaded['players']:
         # iterating on cards objects
         # These objects are all card data
@@ -106,9 +113,31 @@ def win_writer(winning_run):
     with open("win_seeds.txt", "a") as sf:
         sf.write(winning_run.seed + '\n')
 
-    with open("Winning.txt", "a") as f:
-        f.write(winning_run.to_string())
-    f.close()
+    # Seperate characters
+    if winning_run.character == 'CHARACTER.DEFECT':
+        with open("defect.txt", "a") as f:
+            f.write(winning_run.to_string())
+        f.close()
+
+    if winning_run.character == 'CHARACTER.IRONCLAD':
+        with open("ironclad.txt", "a") as f:
+            f.write(winning_run.to_string())
+        f.close()
+
+    if winning_run.character == 'CHARACTER.SILENT':
+        with open("silent.txt", "a") as f:
+            f.write(winning_run.to_string())
+        f.close()
+
+    if winning_run.character == 'CHARACTER.NECROBINDER':
+        with open("necrobinder.txt", "a") as f:
+            f.write(winning_run.to_string())
+        f.close()
+
+    if winning_run.character == 'CHARACTER.REGENT':
+        with open("regent.txt", "a") as f:
+            f.write(winning_run.to_string())
+        f.close()
 
 
 if __name__ == "__main__":
