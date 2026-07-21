@@ -62,13 +62,13 @@ def main():
         if entry.is_file():
             if '.backup' not in entry.name:
                 win = WinningRun('', [], '')
-                get_cards(entry.path, win)
+                get_win_deck(entry.path, win)
                 # win.print_run()
                 if win.seed not in seed_arr:
                     win_writer(win)
 
 
-def get_cards(path, win):
+def get_win_deck(path, win):
     # load file in
     file = open(path)
     loaded = json.load(file)
@@ -113,26 +113,31 @@ def win_writer(winning_run):
     if winning_run.character == 'CHARACTER.DEFECT':
         with open("defect.txt", "a") as f:
             f.write(winning_run.to_string())
+            print('Adding win to Defect')
         f.close()
 
     if winning_run.character == 'CHARACTER.IRONCLAD':
         with open("ironclad.txt", "a") as f:
             f.write(winning_run.to_string())
+            print('Adding win to Ironclad')
         f.close()
 
     if winning_run.character == 'CHARACTER.SILENT':
         with open("silent.txt", "a") as f:
             f.write(winning_run.to_string())
+            print('Adding win to Silent')
         f.close()
 
     if winning_run.character == 'CHARACTER.NECROBINDER':
         with open("necrobinder.txt", "a") as f:
             f.write(winning_run.to_string())
+            print('Adding win to Necrobinder')
         f.close()
 
     if winning_run.character == 'CHARACTER.REGENT':
         with open("regent.txt", "a") as f:
             f.write(winning_run.to_string())
+            print('Adding win to Regent')
         f.close()
 
 
