@@ -1,7 +1,17 @@
+# For moving files
 # import os
+# path = r"cards/silent"
+#
+# for entry in os.scandir(path):
+#     new_path = entry.path
+#     # print(f'New PATH: {new_path}')
+#     for ent in os.scandir(new_path):
+#         # print(ent.path)
+#         if ent.is_file:
+#             os.rename(ent.path, f'{path}/{ent.name}')
 
 # For getting rid of old data
-# p = r"cards/event"
+# p = r"cards/curse"
 #
 # banlist = ["banner.png", "description_text.png",
 #            "energy_icon.png",
