@@ -1,0 +1,231 @@
+/* ==========================
+   Dark Theme
+   ========================== */
+
+:root {
+    --bg: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-hover: #2a2a2a;
+
+    --text: #e0e0e0;
+    --text-muted: #a0a0a0;
+
+    --primary: #4f8cff;
+    --primary-hover: #3b78e7;
+
+    --border: #333;
+    --success: #3fb950;
+    --warning: #d29922;
+    --danger: #f85149;
+
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* Base */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+}
+
+p {
+    color: var(--text);
+}
+
+small {
+    color: var(--text-muted);
+}
+
+/* Links */
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Containers */
+
+.container,
+.card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* Buttons */
+
+button,
+input[type="submit"],
+input[type="button"] {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: var(--primary-hover);
+}
+
+/* Inputs */
+
+input,
+textarea,
+select {
+    width: 100%;
+    background: var(--bg-secondary);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-secondary);
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid var(--border);
+}
+
+th {
+    background: #262626;
+}
+
+tr:nth-child(even) {
+    background: #1b1b1b;
+}
+
+tr:hover {
+    background: var(--bg-hover);
+}
+
+/* Lists */
+
+ul,
+ol {
+    color: var(--text);
+}
+
+/* Horizontal Rule */
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+/* Alerts */
+
+.success {
+    color: var(--success);
+}
+
+.warning {
+    color: var(--warning);
+}
+
+.error,
+.danger {
+    color: var(--danger);
+}
+
+/* Code */
+
+code,
+pre {
+    background: #181818;
+    color: #dcdcdc;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+code {
+    padding: 2px 6px;
+}
+
+pre {
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+/* Scrollbar (WebKit) */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Selection */
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+.deckbox{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+}
