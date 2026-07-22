@@ -33,7 +33,7 @@ class WinningRun:
     def to_string(self):
         string = self.character + '\n' + self.seed + '\n'
         for card in self.deck:
-            string = string + str(card) + '\n'
+            string = string + card.name + ',' + card.enchant + ',' + str(card.enchant_num) + ',' + str(card.upgraded) + '\n'
         string += '\n'
         return string
 
@@ -101,7 +101,6 @@ def get_win_deck(path, win):
             win.add_card(new_card)
 
 
-# TODO: Need to rewrite to json files not txt
 def win_writer(winning_run):
     # Empty runs
     if winning_run.seed == '':
