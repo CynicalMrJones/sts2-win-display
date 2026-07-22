@@ -24,7 +24,7 @@ def win():
 
 
 def winhtml(user_pic):
-    # Need to rewrite .txt to custom jsons to make
+    # TODO: Need to rewrite .txt to custom jsons to make
     # this easier
 
     # meme = []

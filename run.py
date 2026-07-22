@@ -101,6 +101,7 @@ def get_win_deck(path, win):
             win.add_card(new_card)
 
 
+# TODO: Need to rewrite to json files not txt
 def win_writer(winning_run):
     # Empty runs
     if winning_run.seed == '':
