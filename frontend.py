@@ -5,7 +5,7 @@ from markupsafe import Markup
 
 app = Flask(__name__)
 
-img_folder = os.path.join('static', 'cards', 'colorless')
+img_folder = os.path.join('static', 'cards', 'defect')
 app.config["UPLOAD_FOLDER"] = img_folder
 
 
@@ -24,25 +24,27 @@ def win():
 
 
 def winhtml(user_pic):
-    # TODO: Need to rewrite .txt to custom jsons to make
-    # this easier
 
-    # meme = []
-    # with open('defect.txt') as f:
-    #     for e in f:
-    #         if e == '\n':
-    #             break
-    #         meme.append(e.strip())
-    #     # Wow this looks dumb
-    #     del meme[0]
-    #     del meme[0]
-    #     print(meme)
-    return Markup(
-            f'<img src="{user_pic}" height="342" width="280">'
-            f'<img src="{user_pic}" height="342" width="280">'
-            f'<img src="{user_pic}" height="342" width="280">'
-            f'<img src="{user_pic}" height="342" width="280">'
-            )
+    meme = []
+    stripped = []
+    with open('defect.txt') as f:
+        for e in f:
+            if e == '\n':
+                break
+            meme.append(e.lower().strip())
+        # Wow this looks dumb
+        del meme[0]
+        del meme[0]
+        print(meme)
+        for e in meme:
+            stripped.append(e.replace("card.", ""))
+        print(stripped)
+
+        big_string = ""
+        for e in stripped:
+            big_string = big_string + f'<img src="static/cards/{e.split(',')[0]}.png" height="342" width="280">'
+
+    return Markup(big_string)
 
 
 if __name__ == "__main__":
