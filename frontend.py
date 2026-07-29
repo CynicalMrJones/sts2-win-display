@@ -45,4 +45,4 @@ def winhtml(user_pic):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

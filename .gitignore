@@ -5,3 +5,6 @@ ironclad.txt
 silent.txt
 regent.txt
 __pycache__
+dist
+build
+frontend.spec
