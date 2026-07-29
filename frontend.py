@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import os
-from run import main
+from lib.run import main
 from markupsafe import Markup
 
 app = Flask(__name__)
