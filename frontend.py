@@ -42,7 +42,8 @@ def winhtml(user_pic):
 
         big_string = ""
         for e in stripped:
-            big_string = big_string + f'<img src="static/cards/{e.split(',')[0]}.png" height="342" width="280">'
+            big_string = big_string + f'<img src="static/cards\
+                    /{e.split(',')[0]}.png" height="342" width="280">'
 
     return Markup(big_string)
 
