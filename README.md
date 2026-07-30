@@ -2,4 +2,4 @@
 > This is a work in progress
 
 # Win lister
-![image] https://www.github.com/cynicalmrjones/sts2-win-display/sts2_wins.png
+![image] https://github.com/CynicalMrJones/sts2-win-display/blob/master/sts2_wins.png
