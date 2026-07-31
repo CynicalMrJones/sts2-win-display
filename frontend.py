@@ -69,7 +69,7 @@ def get_wins_arr(character: str):
 
 # This shit is so ass
 def winhtml(character):
-    big_string = ""
+    big_string = ''
     win_list = get_wins_arr(character)
     stripped = []
 
@@ -77,18 +77,22 @@ def winhtml(character):
     for win in win_list:
         for entry in win:
             stripped.append(entry.lower())
-        print(stripped)
+        # print(stripped)
         del stripped[0]
-        print(stripped)
+        # print(stripped)
         seed = stripped[0]
         del stripped[0]
-        print('End')
-        big_string = big_string + f'<h1>Seed: {seed}'
+        # print('End')
+        big_string = big_string + f'<h1 class="deckseed">Seed: {seed}</h1>'
+        big_string = big_string + '<div class="deckbox">'
 
         for e in stripped:
             big_string = big_string + f'<img src="static/cards/{e.split(',')[0].replace('card.', '')}.png" height="342" width="280">'
 
         stripped = []
+        big_string += '</div>'
+        print(big_string)
+        print("")
     return Markup(big_string)
 
 
