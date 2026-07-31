@@ -52,9 +52,9 @@ def main():
         exit(0)
 
     seed_arr = []
-    win_seed = Path("win_seeds.txt")
+    win_seed = Path("runs/win_seeds.run")
     if win_seed.exists():
-        with open('win_seeds.txt', 'r') as file:
+        with open('runs/win_seeds.run', 'r') as file:
             for line in file:
                 seed_arr.append(line.strip())
 
@@ -106,36 +106,36 @@ def win_writer(winning_run):
     if winning_run.seed == '':
         return
 
-    with open("win_seeds.txt", "a") as sf:
+    with open("runs/win_seeds.run", "a") as sf:
         sf.write(winning_run.seed + '\n')
 
     # Seperate characters
     if winning_run.character == 'CHARACTER.DEFECT':
-        with open("defect.txt", "a") as f:
+        with open("runs/defect.run", "a") as f:
             f.write(winning_run.to_string())
             print('Adding win to Defect')
         f.close()
 
     if winning_run.character == 'CHARACTER.IRONCLAD':
-        with open("ironclad.txt", "a") as f:
+        with open("runs/ironclad.run", "a") as f:
             f.write(winning_run.to_string())
             print('Adding win to Ironclad')
         f.close()
 
     if winning_run.character == 'CHARACTER.SILENT':
-        with open("silent.txt", "a") as f:
+        with open("runs/silent.run", "a") as f:
             f.write(winning_run.to_string())
             print('Adding win to Silent')
         f.close()
 
     if winning_run.character == 'CHARACTER.NECROBINDER':
-        with open("necrobinder.txt", "a") as f:
+        with open("runs/necrobinder.run", "a") as f:
             f.write(winning_run.to_string())
             print('Adding win to Necrobinder')
         f.close()
 
     if winning_run.character == 'CHARACTER.REGENT':
-        with open("regent.txt", "a") as f:
+        with open("runs/regent.run", "a") as f:
             f.write(winning_run.to_string())
             print('Adding win to Regent')
         f.close()

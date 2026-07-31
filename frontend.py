@@ -18,7 +18,7 @@ def home():
 def silent():
     main()
     # Create deck variable with the html content
-    deck = winhtml("silent.txt")
+    deck = winhtml("runs/silent.run")
     return render_template("silent.html", deck=deck)
 
 
@@ -26,7 +26,7 @@ def silent():
 def ironclad():
     main()
     # Create deck variable with the html content
-    deck = winhtml("ironclad.txt")
+    deck = winhtml("runs/ironclad.run")
     return render_template("ironclad.html", deck=deck)
 
 
@@ -34,7 +34,7 @@ def ironclad():
 def defect():
     main()
     # Create deck variable with the html content
-    deck = winhtml("defect.txt")
+    deck = winhtml("runs/defect.run")
     return render_template("defect.html", deck=deck)
 
 
@@ -42,7 +42,7 @@ def defect():
 def regent():
     main()
     # Create deck variable with the html content
-    deck = winhtml("regent.txt")
+    deck = winhtml("runs/regent.run")
     return render_template("regent.html", deck=deck)
 
 
@@ -50,7 +50,7 @@ def regent():
 def necrobinder():
     main()
     # Create deck variable with the html content
-    deck = winhtml("necrobinder.txt")
+    deck = winhtml("runs/necrobinder.run")
     return render_template("necrobinder.html", deck=deck)
 
 

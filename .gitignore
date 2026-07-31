@@ -1,9 +1,9 @@
-win_seeds.txt
-defect.txt
-necrobinder.txt
-ironclad.txt
-silent.txt
-regent.txt
+win_seeds.run
+defect.run
+necrobinder.run
+ironclad.run
+silent.run
+regent.run
 __pycache__
 dist
 build
