@@ -91,8 +91,6 @@ def winhtml(character):
 
         stripped = []
         big_string += '</div>'
-        print(big_string)
-        print("")
     return Markup(big_string)
 
 
