@@ -8,7 +8,7 @@
 # Windows 
 ## Release page
 1) Download sts2-win.exe under the Releases section
-[a link](https://github.com/CynicalMrJones/sts2-win-display/releases)
+[RELEASES](https://github.com/CynicalMrJones/sts2-win-display/releases)
 2) Run the executable 
 3) Open a browser and connect to 127.0.0.1:5000
 - localhost:5000 also works
@@ -32,6 +32,7 @@ python3 frontend.py
 
 ## Option 2 (Release page)
 1) Download sts_win_display under the Releases section
+[RELEASES](https://github.com/CynicalMrJones/sts2-win-display/releases)
 2) Run from terminal 
 ```
 ./sts_win_display
