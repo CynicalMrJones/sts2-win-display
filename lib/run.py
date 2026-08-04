@@ -46,7 +46,7 @@ def main():
         "ofile1/saves/history/"
     elif system == 'win32':
         # This should work. Im not on windows
-        path = os.path.expanduser("~") + "\\AppData\\Local\\SlayTheSpire2\\saves\\history\\"
+        path = os.path.expanduser("~") + "\\AppData\\Roaming\\SlayTheSpire2\\steam\\76561198243211320\\profile1\\saves\\history"
     else:
         print('Unable to find sts2 dir')
         exit(0)
