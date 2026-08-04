@@ -106,6 +106,9 @@ def win_writer(winning_run):
     if winning_run.seed == '':
         return
 
+    if not os.path.exists('runs'):
+        os.makedirs('runs')
+
     with open("runs/win_seeds.run", "a") as sf:
         sf.write(winning_run.seed + '\n')
 
