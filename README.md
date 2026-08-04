@@ -3,6 +3,15 @@
 # Win lister
 ![image](https://github.com/CynicalMrJones/sts2-win-display/blob/master/sts2_wins.png)
 
+# About
+This project aims to display winning decks that are built in Slay the Spire 2. It uses 
+flask and python to run a local server where you can see them in a browser.
+## Methodology
+I wanted to get better with web technologies so I chose flask with python to display data.
+I usually don't reach for python but I have experience with JSON parsing using it. I needed
+a JSON file because Slay the Spire 2 stores runs in .run files which are JSONS in disguies.
+This is still a work in progress and will be updated for future beta branches.
+
 # How to use
 
 # Windows 
