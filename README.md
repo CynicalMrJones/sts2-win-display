@@ -48,3 +48,13 @@ python3 frontend.py
 ```
 3) Open a browser and connect to 127.0.0.1:5000
 - localhost:5000 also works
+
+# Future Work
+- Multiplayer support
+- Relic display
+- Enchant and upgrade display
+- UI improvements
+- Sorting
+- Most won with card
+- Least won with card
+- General Optimizations
