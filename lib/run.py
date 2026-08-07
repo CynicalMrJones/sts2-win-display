@@ -19,9 +19,13 @@ class WinningRun:
     character: str
     deck: list
     seed: str
+    relics: list
 
     def add_card(self, card):
         self.deck.append(card)
+
+    def add_relic(self, relic):
+        self.relics.append(relic)
 
     def print_run(self):
         if self.seed == '':
@@ -33,6 +37,8 @@ class WinningRun:
 
     def to_string(self):
         string = self.character + '\n' + self.seed + '\n'
+        for relic in self.relics:
+            string = string + relic + '\n'
         for card in self.deck:
             string = string + card.name + ',' + card.enchant + ',' + str(card.enchant_num) + ',' + str(card.upgraded) + '\n'
         string += '\n'
@@ -65,7 +71,7 @@ def main():
     for entry in os.scandir(path):
         if entry.is_file():
             if '.backup' not in entry.name:
-                win = WinningRun('', [], '')
+                win = WinningRun('', [], '', [])
                 get_win_deck(entry.path, win)
                 # win.print_run()
                 if win.seed not in seed_arr:
@@ -91,6 +97,11 @@ def get_win_deck(path, win):
     for items in loaded['players']:
         # iterating on cards objects
         # These objects are all card data
+
+        # Add relics
+        for test in items['relics']:
+            win.add_relic(test['id'])
+
         win.character = items['character']
         for card in items['deck']:
             new_card = Card("", "", 0, False)

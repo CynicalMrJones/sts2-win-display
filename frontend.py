@@ -77,17 +77,26 @@ def winhtml(character):
     for win in win_list:
         for entry in win:
             stripped.append(entry.lower())
-        # print(stripped)
         del stripped[0]
-        # print(stripped)
         seed = stripped[0]
         del stripped[0]
-        # print('End')
+
         big_string = big_string + f'<h1 class="deckseed">Seed: {seed}</h1>'
+        big_string += '<h1 class="deckseed">'
+        for ent in stripped:
+            if ent.find('relic.') != -1:
+                big_string = big_string + f'<img src="static/relics/{ent.replace("relic.", "")}.png" height="72" width"72"">'
+        big_string += '</h>'
         big_string = big_string + '<div class="deckbox">'
 
         for e in stripped:
-            big_string = big_string + f'<img src="static/cards/{e.split(",")[0].replace("card.", "")}.png" height="342" width="280">'
+            if e.find('card.') != -1:
+                temp = e.split(',')
+                print(temp)
+                if temp[3] == 'false':
+                    big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}.png" height="342" width="280">'
+                else:
+                    big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}_plus.png" height="342" width="280">'
 
         stripped = []
         big_string += '</div>'
