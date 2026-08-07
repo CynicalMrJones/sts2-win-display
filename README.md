@@ -51,8 +51,7 @@ python3 frontend.py
 
 # Future Work
 - Multiplayer support
-- Relic display
-- Enchant and upgrade display
+- Enchant display
 - UI improvements
 - Sorting
 - Most won with card
