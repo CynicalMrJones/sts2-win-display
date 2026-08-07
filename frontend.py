@@ -2,12 +2,15 @@ from flask import Flask, render_template
 import os
 from lib.run import main
 from markupsafe import Markup
+import webbrowser
+
 
 app = Flask(__name__)
 
 img_folder = os.path.join('static', 'cards')
 app.config["UPLOAD_FOLDER"] = img_folder
 
+webbrowser.open('localhost:5000')
 
 @app.route("/")
 def home():
