@@ -99,8 +99,8 @@ def get_win_deck(path, win):
         # These objects are all card data
 
         # Add relics
-        for test in items['relics']:
-            win.add_relic(test['id'])
+        for relic in items['relics']:
+            win.add_relic(relic['id'])
 
         win.character = items['character']
         for card in items['deck']:
