@@ -20,6 +20,7 @@ class WinningRun:
     deck: list
     seed: str
     relics: list
+    ascension: str
 
     def add_card(self, card):
         self.deck.append(card)
@@ -36,7 +37,7 @@ class WinningRun:
             print(card)
 
     def to_string(self):
-        string = self.character + '\n' + self.seed + '\n'
+        string = self.character + '\n' + self.seed + '\n' + str(self.ascension) + '\n'
         for relic in self.relics:
             string = string + relic + '\n'
         for card in self.deck:
@@ -71,9 +72,8 @@ def main():
     for entry in os.scandir(path):
         if entry.is_file():
             if '.backup' not in entry.name:
-                win = WinningRun('', [], '', [])
+                win = WinningRun('', [], '', [], '')
                 get_win_deck(entry.path, win)
-                # win.print_run()
                 if win.seed not in seed_arr:
                     win_writer(win)
 
@@ -86,6 +86,8 @@ def get_win_deck(path, win):
     # Only load wins
     if loaded['win'] is False:
         return 0
+
+    win.ascension = loaded['ascension']
 
     # The Sneed for the ran
     win.seed = loaded['seed']

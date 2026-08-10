@@ -83,8 +83,10 @@ def winhtml(character):
         del stripped[0]
         seed = stripped[0]
         del stripped[0]
+        ascension = stripped[0]
+        del stripped[0]
 
-        big_string = big_string + f'<h1 class="deckseed">Seed: {seed}</h1>'
+        big_string = big_string + f'<h1 class="deckseed">Seed: {seed} Ascension: {ascension}</h1>'
         big_string += '<h1 class="deckseed">'
         for ent in stripped:
             if ent.find('relic.') != -1:
