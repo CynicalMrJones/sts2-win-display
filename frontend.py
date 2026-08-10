@@ -95,7 +95,6 @@ def winhtml(character):
         for e in stripped:
             if e.find('card.') != -1:
                 temp = e.split(',')
-                print(temp)
                 if temp[3] == 'false':
                     big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}.png" height="342" width="280">'
                 else:
