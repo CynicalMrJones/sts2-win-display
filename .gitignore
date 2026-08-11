@@ -4,7 +4,7 @@ necrobinder.run
 ironclad.run
 silent.run
 regent.run
-__pycache__
+**/__pycache__/
 dist
 build
 frontend.spec
