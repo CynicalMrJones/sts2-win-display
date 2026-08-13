@@ -12,9 +12,14 @@ app.config["UPLOAD_FOLDER"] = img_folder
 
 webbrowser.open('localhost:5000')
 
+
 @app.route("/")
 def home():
-    return render_template("index.html")
+    main()
+    most_used_list = most_used()
+    return render_template("index.html", ironclad=most_used_list[0],
+                           silent=most_used_list[1], regent=most_used_list[2],
+                           necrobinder=most_used_list[3], defect=most_used_list[4])
 
 
 @app.route("/silent")
@@ -105,6 +110,106 @@ def winhtml(character):
         stripped = []
         big_string += '</div>'
     return Markup(big_string)
+
+
+def most_used():
+    char_list = ['runs/ironclad.run', 'runs/silent.run', 'runs/regent.run',
+                 'runs/necrobinder.run', 'runs/defect.run']
+    most_used = []
+    fixed = []
+    for item in char_list:
+        win_list = get_wins_arr(item)
+        most_used.append(counter(win_list))
+    for item in most_used:
+        for t in item:
+            fixed.append(t.replace('card.', ''))
+    return fixed
+
+
+# This is even worse
+def counter(arr):
+    count_list = dict()
+    most_used = []
+    for item in arr:
+        # print(f'ITEM: {item}')
+        maximum = 0
+        for element in item:
+            # print(f'Element: {element}')
+            element = element.lower()
+            if element.find('card.') != -1:
+                test = element.split(',')
+                if test[1] == 'enchantment.clone':
+                    print('Found')
+                    break
+                if test[3] == 'true':
+                    test[0] = f'{test[0]}_plus'
+                if test[0] in count_list:
+                    count = count_list.get(test[0])
+                    count_list[test[0]] = count + 1
+                else:
+                    count_list[test[0]] = 1
+
+    clean = clean_list(count_list)
+    print(clean)
+    maximum = max(clean, key=clean.get)
+    most_used.append(maximum)
+    return most_used
+
+
+def clean_list(count_list):
+    clean = count_list
+    # ironclad cards
+    clean.pop('card.strike_ironclad', None)
+    clean.pop('card.defend_ironclad', None)
+    clean.pop('card.strike_ironclad_plus', None)
+    clean.pop('card.defend_ironclad_plus', None)
+    clean.pop('card.bash', None)
+    clean.pop('card.bash_plus', None)
+
+    # silent cards
+    clean.pop('card.strike_silent', None)
+    clean.pop('card.defend_silent', None)
+    clean.pop('card.strike_silent_plus', None)
+    clean.pop('card.defend_silent_plus', None)
+    clean.pop('card.neutralize', None)
+    clean.pop('card.neutralize_plus', None)
+    clean.pop('card.survivor', None)
+    clean.pop('card.survivor', None)
+
+    # regent cards
+    clean.pop('card.strike_regent', None)
+    clean.pop('card.defend_regent', None)
+    clean.pop('card.strike_regent_plus', None)
+    clean.pop('card.defend_regent_plus', None)
+    clean.pop('card.falling_star', None)
+    clean.pop('card.falling_star_plus', None)
+    clean.pop('card.venerate', None)
+    clean.pop('card.venerate_plus', None)
+
+    # necrobinder cards
+    clean.pop('card.strike_necrobinder', None)
+    clean.pop('card.defend_necrobinder', None)
+    clean.pop('card.strike_necrobinder_plus', None)
+    clean.pop('card.defend_necrobinder_plus', None)
+    clean.pop('card.bodyguard', None)
+    clean.pop('card.bodyguard_plus', None)
+    clean.pop('card.unleash', None)
+    clean.pop('card.unleash_plus', None)
+
+    # defect cards
+    clean.pop('card.strike_defect', None)
+    clean.pop('card.defend_defect', None)
+    clean.pop('card.strike_defect_plus', None)
+    clean.pop('card.defend_defect_plus', None)
+    clean.pop('card.zap', None)
+    clean.pop('card.zap_plus', None)
+    clean.pop('card.dualcast', None)
+    clean.pop('card.dualcast_plus', None)
+
+    # ascenders bane
+    clean.pop('card.ascenders_bane', None)
+
+    return clean
 
 
 if __name__ == "__main__":

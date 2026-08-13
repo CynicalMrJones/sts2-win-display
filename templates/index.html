@@ -2,28 +2,72 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Hello World!</title>
+        <title>Slay the Spire 2 Win Display</title>
         <link rel="stylesheet" href= "{{ url_for('static', filename='dark.css') }}">
     </head>
     <body>
-        <center><h1>HOME</h1></center>
-        <center>
-            <h3>Go to win</h3>
-            <a href="{{ url_for('ironclad') }}">
-                <button>ironclad</button>
-            </a>
-            <a href="{{ url_for('silent') }}">
-                <button>silent</button>
-            </a>
-            <a href="{{ url_for('regent') }}">
-                <button>regent</button>
-            </a>
-            <a href="{{ url_for('necrobinder') }}">
-                <button>necrobinder</button>
-            </a>
-            <a href="{{ url_for('defect') }}">
-                <button>defect</button>
-            </a>
-        </center>
+        <center><h2>HOME</h2></center>
+        <div class="top-container">
+            <li>
+                <a href="{{ url_for('ironclad') }}">
+                    <button>ironclad</button>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('silent') }}">
+                    <button>silent</button>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('regent') }}">
+                    <button>regent</button>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('necrobinder') }}">
+                    <button>necrobinder</button>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('defect') }}">
+                    <button>defect</button>
+                </a>
+            </li>
+        </div>
+
+        <!-- For the stats -->
+        <center><h3>Most Used Cards<h3></center>
+        <div class="stats">
+            <div class="info-box">
+                <h3>Ironclad</h3>
+                <div>
+                    <img src="static/cards/{{ ironclad }}.png" height="342" width="280">
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Silent</h3>
+                <div>
+                    <img src="static/cards/{{ silent }}.png" height="342" width="280">
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Regent</h3>
+                <div>
+                    <img src="static/cards/{{ regent }}.png" height="342" width="280">
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Necrobinder</h3>
+                <div>
+                    <img src="static/cards/{{ necrobinder }}.png" height="342" width="280">
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Defect</h3>
+                <div>
+                    <img src="static/cards/{{ defect }}.png" height="342" width="280">
+                </div>
+            </div>
+        </div>
     </body>
 </html>
