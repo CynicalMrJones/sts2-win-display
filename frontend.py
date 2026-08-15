@@ -138,6 +138,8 @@ def counter(arr):
             element = element.lower()
             if element.find('card.') != -1:
                 test = element.split(',')
+                # This will read all other cards until it finds clone.
+                # It needs to ignore cards that have clone and continue otherwise
                 if test[1] == 'enchantment.clone':
                     print('Found')
                     break
