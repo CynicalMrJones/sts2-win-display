@@ -10,7 +10,7 @@ app = Flask(__name__)
 img_folder = os.path.join('static', 'cards')
 app.config["UPLOAD_FOLDER"] = img_folder
 
-webbrowser.open('localhost:5000')
+webbrowser.open('http://localhost:5000')
 
 
 @app.route("/")
