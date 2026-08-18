@@ -22,6 +22,13 @@ class WinningRun:
     relics: list
     ascension: str
 
+    def __init__(self):
+        self.character = ''
+        self.deck = []
+        self.seed = ''
+        self.relics = []
+        self.ascension = ''
+
     def add_card(self, card):
         self.deck.append(card)
 
@@ -72,7 +79,7 @@ def main():
     for entry in os.scandir(path):
         if entry.is_file():
             if '.backup' not in entry.name:
-                win = WinningRun('', [], '', [], '')
+                win = WinningRun()
                 get_win_deck(entry.path, win)
                 if win.seed not in seed_arr:
                     win_writer(win)
