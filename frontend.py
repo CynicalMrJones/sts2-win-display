@@ -19,7 +19,8 @@ def home():
     most_used_list = most_used()
     return render_template("index.html", ironclad=most_used_list[0],
                            silent=most_used_list[1], regent=most_used_list[2],
-                           necrobinder=most_used_list[3], defect=most_used_list[4])
+                           necrobinder=most_used_list[3],
+                           defect=most_used_list[4])
 
 
 @app.route("/silent")
@@ -60,6 +61,14 @@ def necrobinder():
     # Create deck variable with the html content
     deck = winhtml("runs/necrobinder.run")
     return render_template("necrobinder.html", deck=deck)
+
+
+@app.route("/multiplayer")
+def multiplayer():
+    main()
+    # Create deck variable with the html content
+    deck = winhtml("runs/multiplayer.run")
+    return render_template("multiplayer.html", deck=deck)
 
 
 def get_wins_arr(character: str):

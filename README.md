@@ -54,6 +54,5 @@ python3 frontend.py
 - Enchant display
 - UI improvements
 - Sorting
-- Most won with card
 - Least won with card
 - General Optimizations
