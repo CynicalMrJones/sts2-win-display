@@ -103,9 +103,9 @@ def winhtml(character):
             if e.find('card.') != -1:
                 temp = e.split(',')
                 if temp[3] == 'false':
-                    big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}.png" height="342" width="280">'
+                    big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}.png" height="302" width="240">'
                 else:
-                    big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}_plus.png" height="342" width="280">'
+                    big_string = big_string + f'<img src="static/cards/{temp[0].replace("card.", "")}_plus.png" height="302" width="240">'
 
         stripped = []
         big_string += '</div>'
@@ -131,10 +131,8 @@ def counter(arr):
     count_list = dict()
     most_used = []
     for item in arr:
-        # print(f'ITEM: {item}')
         maximum = 0
         for element in item:
-            # print(f'Element: {element}')
             element = element.lower()
             if element.find('card.') != -1:
                 test = element.split(',')
